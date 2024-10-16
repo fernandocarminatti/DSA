@@ -21,8 +21,7 @@ public class SearchAlgorithms {
 
     public static int binarySearch(int[] array, int key) {
         // "Divide and Conquer" on each iteration,
-        // checks for middle value and GREAT or LESS than TARGET,
-        // length of array search is
+        // checks for middle value and GREAT or LESS than TARGET
 
         int steps = 0;
         int left = 0;
@@ -41,6 +40,20 @@ public class SearchAlgorithms {
             }
         }
         System.out.println("Binary search steps: "+ steps);
+        return -1;
+    }
+
+    public static int binarySearchRecursive(int[] array, int target, int start, int end){
+        if(start <= end){
+            int mid = (start + end)/2;
+            if(array[mid] == target){
+                return mid;
+            }
+            if(array[mid] > target){
+                return binarySearchRecursive(array, target, start, mid-1);
+            }
+            return binarySearchRecursive(array, target, mid+1, end);
+        }
         return -1;
     }
 
