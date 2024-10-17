@@ -9,6 +9,10 @@ public class SortingMainPlayground {
         int[] arrayToBeSorted = NumbersGenerator.getUnsortedNumbersArray();
 
         String bubbleSortResult = SortingAlgorithms.bubbleSort(arrayToBeSorted);
+        String selectionSortResult = SortingAlgorithms.selectionSort(arrayToBeSorted);
+
         System.out.println(bubbleSortResult);
+        System.out.println(selectionSortResult);
+
     }
 }
