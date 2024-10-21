@@ -1,6 +1,11 @@
 package org.example.sorting;
 
+import java.util.Arrays;
+
 public class SortingAlgorithms {
+    /*
+    Encontrar o MAIOR valor e joga-lo par ao final da lista.
+    */
     public static void bubbleSort(int[] arrayToSort) {
         int tempValue = 0;
         int arraySize = arrayToSort.length - 1;
@@ -16,14 +21,17 @@ public class SortingAlgorithms {
         }
     }
 
-    public static void selectionSort(int[] arrayToSort){
+    /*
+    Encontrar o MENOR valor e joga-lo par ao inicio da lista.
+    */
+    public static int[] selectionSort(int[] arrayToSort){
         int minValueIndex = 0;
         int tempValue = 0;
         int arraySize = arrayToSort.length - 1;
 
         for(int i = 0; i < arraySize; i++){
             minValueIndex = i;
-            for(int j = i + 1; j < arraySize; j++){
+            for(int j = i + 1; j < arraySize + 1; j++){
                 if(arrayToSort[minValueIndex] > arrayToSort[j]){
                     minValueIndex = j;
                 }
@@ -32,8 +40,12 @@ public class SortingAlgorithms {
             arrayToSort[minValueIndex] = arrayToSort[i];
             arrayToSort[i] = tempValue;
         }
+        return arrayToSort;
     }
 
+    /*
+    Encontrar o MENOR valor e separa-lo da lista. Mover os MAIORES valores para a direita até que sobre a posição para inserir o MENOR valor.
+    */
     public static void insertionSort(int[] arrayToSort){
         int min = 0;
         int j = 0;
@@ -59,17 +71,17 @@ public class SortingAlgorithms {
         }
     }
 
-    public static int partition(int[]array, int low, int high){
-        int pivot = array[high];
-        int i = low - 1;
+    public static int partition(int[]array, int lowBound, int highBound){
+        int pivot = array[highBound];
+        int i = lowBound - 1;
 
-        for (int j = low; j < high; j++) {
+        for (int j = lowBound; j < highBound; j++) {
             if (array[j] <= pivot) {
                 i++;
                 swap(array, i, j);
             }
         }
-        swap(array, i + 1, high);
+        swap(array, i + 1, highBound);
         return i + 1;
     }
 
@@ -78,4 +90,22 @@ public class SortingAlgorithms {
         array[num01] = array[num02];
         array[num02] = temp;
     }
+
+    public static int[] reimplementation(int[] array){
+        int temp = 0;
+        int arraySize = array.length - 1;
+
+        for(int i = 0; i< arraySize; i++){
+            for(int j = 0; j < arraySize - i; j++){
+                System.out.println(Arrays.toString(array));
+                if(array[j] > array[j + 1]){
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+        return array;
+    }
+
 }
