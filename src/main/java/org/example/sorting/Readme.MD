@@ -22,8 +22,8 @@
     - Two variables:
         - Min value from loop index.
         - Another variable that keeps track of the position to start shifting. Starts with `LOOPVAR - 1`.
-- While loop using the variable that keeps track of position to start shift. `Var >= 0` and `array[var] > min value`.
+- While loop using the variable that keeps track of position to start shifting. `Var >= 0` and `array[var] > min value`.
     - Next element is overwritten by the actual element: `{ array[var + 1] = array[var] }`
     - Decrement `var` value by `1` with `VAR--` to keep track of values to shift.
     - On false evaluation, I already have shifted all greater elements to the position of the found MIN value.
-    - Stored it elsewhere and now I return it to the correct position.
+    - Stored it elsewhere and now I return it to the correct position which will always be `array[var + 1]`.
